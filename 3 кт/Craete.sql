@@ -1,3 +1,17 @@
+set ansi_nulls on
+go
+set ansi_padding on
+go
+set quoted_identifier on 
+go
+
+create database [IIPIIIXXIIAleynichenkoAP]
+go
+
+use [IIPIIIXXIIAleynichenkoAP]
+go
+
+
 create table [dbo].[Employee]
 (
     [ID_Employee] [int] not null identity(1,1),
@@ -48,7 +62,7 @@ create table [dbo].[Client]
     constraint [CH_Division_Code_Passport_Client] check ([Division_Code_Passport_Client] like '[0-9][0-9][0-9]-[0-9][0-9][0-9]'),
     constraint [CH_Phone_Number_Client] check ([Phone_Number_Client] like '+7([0-9][0-9][0-9])[0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
     constraint [CH_Email_Client] check ([Email_Client] like '%_@__%.__%'),
-    constraint [CH_Login_Client] check (len([Login_Client]) >= 6 and [Login_Client] like '%[a-zA-Z]%' and [Login_Client] like '%[0-9]%' and [Login_Client] like '%[!@#$%^&*()]%'),
+    constraint [CH_Login_Client] check (len([Login_Client]) >= 6 and [Login_Client] like '%[a-zA-Z]%'),
     constraint [CH_Password_Client] check (len([Password_Client]) >= 6 and [Password_Client] like '%[a-zA-Z]%' and [Password_Client] like '%[0-9]%' and [Password_Client] like '%[!@#$%^&*()]%')
 )
 go
